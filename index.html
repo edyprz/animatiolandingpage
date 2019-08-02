@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="open">
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+    <section>
+        <div class="header">
+            <h2 class="logo">Your Logo</h2>
+            <i class="fa fa-bars x2" onclick="menuToggle()"></i>
+            <ul id="navigation">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Work</a></li>
+                <li><a href="#">Portfoliio</a></li>
+                <li><a href="#">Contact</a></li>
+                <i class="fa fa-times x2" onclick="menuToggle()"></i>
+            </ul>
+        </div>
+        <div class="bannertext">
+            <h2>Think Creative</h2><br>
+            <h3>And Make Innovative Design</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam odit cum velit reiciendis ipsam? Omnis animi optio id? Exercitationem aliquam repudiandae, quas quisquam obcaecati sit vel fugiat illum iure sapiente corporis ipsa dolores tempora ex saepe sed dignissimos! Numquam eius eveniet iure quas eligendi ducimus at ipsum architecto molestiae reiciendis consectetur modi illo, debitis incidunt doloribus repudiandae autem explicabo ab vero tempore quo quos, laborum delectus cupiditate. Esse optio iusto maxime, autem praesentium explicabo provident ipsum nam consectetur et cum. Ipsa rerum mollitia eligendi praesentium nemo, harum perferendis eius ab, facilis quaerat aspernatur? Cupiditate unde quibusdam id veritatis tempora magnam.</p>
+            <a href="#" class="readmore">Read More</a>
+        </div>
+        <img src="bulb.jpg" class="bulb">
+        <ul class="sci">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+        <div class="element1"></div>
+        <div class="element2"></div>
+    </section>
+    
+    <script type="text/javascript">
+        function menuToggle(){
+            var element = document.getElementById("navigation");
+            element.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+body{
+    margin:0;
+    padding: 0;
+    min-height: 100vh;/*vh - 100% del viewport*/
+}
+.open{
+    position: fixed;/*se posiciona con r4eferencia al navegador y permanecaera en la posicion aun cuando se haga un scroll*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;/*no responde ante los clicks el elemento html*/
+    z-index:1000;
+}
+.open .layer{
+    position: absolute;/*respeta el flujo normal de la pagina, se posiciona respecto a otros elementos excepto static*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    animation: open 1s ease-in-out forwards;/*ease in our- lento al inicio y al final, forwards permite que los valores del ultimo keyframe permanezcan*/
+}
+.open .layer:nth-child(1){/*aplica al primer layer*/
+    background: #000;
+    z-index: 2;
+}
+.open .layer:nth-child(2){/*aplica al primer layer*/
+    background: #03a9f4;
+    animation-delay: 1s;
+    z-index: 1;
+}
+@keyframes open{
+        0%{
+            transform:scaleY(1);
+        }
+        100%{
+            transform: scaleY(0); 
+        }
+}
+section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.bannertext{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 1000px;
+    z-index: 1001;
+}
+.bannertext h2, .bannertext h3{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    transform-origin: left;
+    text-transform: uppercase;
+    transform: scaleX(0);
+    animation: revealtextreverse 1s ease-in-out forwards;
+
+    
+}
+.bannertext h2{
+    font-size: 5em;/*em equivale a una letra, aprox 16 px*/
+    animation-delay: 2s;
+}
+.bannertext h3{
+    font-size: 3em;
+    animation-delay: 3s;
+}
+.bannertext h2:before,
+.bannertext h3:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    transform-origin: right;
+    animation: revealtext 1s ease-in-out forwards;
+    animation-delay: 3s;
+}
+.bannertext h3:before{
+    animation-delay: 4s;
+}
+@keyframes revealtext{
+    0%{
+        transform: scaleX(1);
+    }
+    100%{
+        transform: scaleX(0);
+    }
+}
+@keyframes revealtextreverse{
+    0%{
+        transform: scaleX(0);
+    }
+    100%{
+        transform: scaleX(1);
+    }
+}
+.bannertext p{
+    z-index: 1001;
+    opacity: 0;
+    font-weight: 400;
+    font-size: 1.2em;
+    animation: fadein 1s linear forwards;/*linear- corre a la misma vel la animacion*/
+    animation-delay: 5s;
+}
+@keyframes fadein{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.bannertext a{
+    opacity: 0;
+    display: inline-block;
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    animation: fadeinbottom 0.5s linear forwards;
+    animation-delay: 5.5s;
+}
+@keyframes fadeinbottom{
+    0%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.bulb{
+    opacity: 0;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: fadein 1s linear forwards;
+    animation-delay: 6s;
+    z-index: 1000;
+}
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.header .logo{
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    animation: fadein 0.5s linear forwards;
+    animation-delay: 5s;
+}
+
+.header ul{
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    display: flex;
+}
+.header ul li{
+    opacity: 0;
+    list-style: none;
+    margin: 0 10px;
+    animation: fadeinright 0.5s linear forwards;
+}
+.header ul li:nth-child(1),
+.sci li:nth-child(1)
+{
+    animation-delay: 5s;
+}
+.header ul li:nth-child(2),
+.sci li:nth-child(2)
+{
+    animation-delay: 5.25s;
+}
+.header ul li:nth-child(3),
+.sci li:nth-child(3)
+{
+    animation-delay: 5.5s;
+}
+.header ul li:nth-child(4),
+.sci li:nth-child(4)
+{
+    animation-delay: 5.75s;
+}
+.header ul li:nth-child(5){
+    animation-delay: 6s;
+}
+.header ul li:nth-child(6){
+    animation-delay: 6.25s;
+}
+.header ul li:last-child{
+    margin-right: 0;
+}
+.header ul li a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #000;
+    margin: 0;
+    padding: 5px 10px;
+    background: #fff;
+    letter-spacing: 2px;
+}
+.header ul li a.active,
+.header ul li a:hover
+{
+    background: #000;
+    color: #fff;
+}
+@keyframes fadeinright{
+    0%{
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.sci{
+    position: absolute;
+    bottom: 15px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.sci li{
+    opacity: 0;
+    margin: 5px 0;
+    text-align: center;
+    list-style: none;
+    animation: fadeinbottom 0.5s linear forwards;
+    animation-delay: 5s;
+}
+.sci li a{
+    font-size: 1.2em;
+    color: #000;
+}
+.element1{
+    opacity: 0;
+    position: absolute;
+    bottom: -100px;
+    right: 40%;
+    width: 250px;
+    height: 300px;
+    border: 40px solid #000;
+    animation: rotate 40s linear infinite, fadein 1s linear forwards;
+    animation-delay: 7s;
+}
+.element2{
+    opacity: 0;
+    position: absolute;
+    left: -10px;
+    top: 40%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    animation: rotate 30s linear infinite, fadein 1s linear forwards;
+    animation-delay: 7s;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(45deg);
+    }
+    100%{
+        transform: rotate(405deg);
+    }
+}
+.fa-times.x2,
+.fa-bars.x2{
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+}
+@media (max-width:1280px){
+    section{
+        height: auto !important; /*!imprtant tiene prioridad y no puede ser sobreescrito*/
+        display: initial;
+        padding: 100px;
+        box-sizing: border-box;
+    }
+    .bannertext{
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: 100px;
+        transform: translateY(0);
+        max-width: 700px;
+        z-index: 1001;
+    }
+    .sci{
+        z-index: 1002;
+        right: 20px;
+    }
+    .element1{
+        display: none;
+    }
+
+}
+@media (max-width:991px){
+    .fa-bars.x2{
+        display: block;
+    }
+    .fa-times.x2{
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        display: block;
+    }
+    .bannertext h2{
+        font-size: 3em;
+    }
+    .bannertext h3{
+        font-size: 1.5em;
+    } 
+    .element1{
+        display: none;
+    }
+    .header ul{
+        position: fixed;
+        background: #fff;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        z-index: 1010;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: scroll;/*el contenido es escondido*/
+        }
+    .header ul.show{
+        display: flex;
+    }
+        .header ul li:nth-child(1),
+        .header ul li:nth-child(2),
+        .header ul li:nth-child(3),
+        .header ul li:nth-child(4),
+        .header ul li:nth-child(5),
+        .header ul li:nth-child(6){
+            animation-delay: 0s !important;
+        }
+    .header ul li{
+        margin: 10px 0;
+    }
+}
+@media (max-width: 991px){
+    section{
+        padding: 50px 80px 50px 50px;
+    }
+    .header{
+        padding: 0 50px;
+    }
+    .header{
+        z-index: 1001;
+    }
+}
